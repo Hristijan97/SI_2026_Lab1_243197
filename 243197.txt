@@ -1,0 +1,87 @@
+4. git init
+
+5. git remote add origin https://github.com/Hristijan97/SI_2026_Lab1_243197.git
+
+6. git add README.md
+   git commit -m "Initial commit"
+
+7. git add SI2026Lab1Main.java
+   git commit -m "Add starter code"
+
+8. git push -u origin master
+
+9. git checkout -b feature-search-books
+
+10. git add SI2026Lab1Main.java
+    git commit -m "Implement book search"
+
+11. git push origin feature-search-books
+
+12. git checkout master
+    git merge feature-search-books
+
+13. Спојувањето беше fast-forward бидејќи немаше промени на master гранката
+git log --oneline --graph --all
+* 092b2b2 (HEAD -> master, origin/feature-search-books, feature-search-books) Implement book search
+* 12f4e85 (origin/master) Add starter code
+* ec051ea Initial commit
+
+14. git push origin master
+
+15. git branch feature-borrow-book
+    git branch feature-genre-report
+
+16. git checkout feature-borrow-book
+    git add SI2026Lab1Main.java
+    git commit -m "Implement borrow book"
+
+17. git checkout master
+    git add SI2026Lab1Main.java
+    git commit -m "Update borrow message on master"
+
+18. git checkout feature-genre-report
+    git add SI2026Lab1Main.java
+    git commit -m "Implement genre report"
+
+19. git push origin feature-borrow-book
+
+20. git push origin feature-genre-report
+
+21. git checkout feature-borrow-book
+    git merge master
+
+    По решавање на конфликтот:
+    git add SI2026Lab1Main.java
+    git commit -m "Merge master into feature-borrow-book and resolve conflict"
+
+
+22. Конфликтот го решив така што ја избришав пораката од master гранката и
+    ја задржав само пораката од гранката feature-borrow-book.
+    Беше употребена рекурзивната ORT merge стратегија
+    git status
+    On branch feature-borrow-book
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            .idea/
+            243197.txt
+            out/
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+23. git checkout master
+    git merge feature-genre-report
+
+    Ова спојување е рекурзивно (ORT) бидејќи по креирањето на оваа гранка,
+    на master додадовме нов commit
+
+24. git merge feature-borrow-book
+
+    И ова спојување е рекурзивно (ORT) бидејќи исто така по креирањето на
+    оваа гранка, на master додадовме нов commit
+
+25. git push origin master
+
+26. git add logs.txt 243197.txt
+    git commit -m "Final commit"
+
+27. git push origin master
